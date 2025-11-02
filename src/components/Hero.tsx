@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { FaArrowRight, FaCheckCircle } from 'react-icons/fa';
+import { ArrowRight, CheckCircle } from 'lucide-react';
 
 /**
  * Hero component for the homepage
@@ -32,19 +32,19 @@ export default function Hero() {
             {/* Key Benefits */}
             <div className="space-y-4 mb-8">
               <div className="flex items-center space-x-3">
-                <FaCheckCircle className="text-green-400 text-xl flex-shrink-0" />
+                <CheckCircle className="text-green-400 w-5 h-5 flex-shrink-0" />
                 <span className="text-lg">15+ Years of Industry Excellence</span>
               </div>
               <div className="flex items-center space-x-3">
-                <FaCheckCircle className="text-green-400 text-xl flex-shrink-0" />
+                <CheckCircle className="text-green-400 w-5 h-5 flex-shrink-0" />
                 <span className="text-lg">2000+ Trained & Verified Staff</span>
               </div>
               <div className="flex items-center space-x-3">
-                <FaCheckCircle className="text-green-400 text-xl flex-shrink-0" />
+                <CheckCircle className="text-green-400 w-5 h-5 flex-shrink-0" />
                 <span className="text-lg">24/7 Customer Support</span>
               </div>
               <div className="flex items-center space-x-3">
-                <FaCheckCircle className="text-green-400 text-xl flex-shrink-0" />
+                <CheckCircle className="text-green-400 w-5 h-5 flex-shrink-0" />
                 <span className="text-lg">ISO Certified Services</span>
               </div>
             </div>
@@ -56,7 +56,7 @@ export default function Hero() {
                 className="bg-white text-primary-600 px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors font-semibold text-lg inline-flex items-center gap-2"
               >
                 Get Free Quote
-                <FaArrowRight />
+                <ArrowRight className="w-5 h-5" />
               </Link>
               <Link
                 href="/services"

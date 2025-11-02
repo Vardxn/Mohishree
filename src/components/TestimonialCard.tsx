@@ -1,4 +1,4 @@
-import { FaStar } from 'react-icons/fa';
+import { Star } from 'lucide-react';
 import type { Testimonial } from '@/types';
 
 interface TestimonialCardProps {
@@ -15,7 +15,7 @@ export default function TestimonialCard({ testimonial }: TestimonialCardProps) {
       {/* Stars */}
       <div className="flex gap-1 mb-4">
         {[...Array(testimonial.rating)].map((_, i) => (
-          <FaStar key={i} className="text-yellow-400 text-xl" />
+          <Star key={i} className="text-yellow-400 w-5 h-5 fill-yellow-400" />
         ))}
       </div>
 

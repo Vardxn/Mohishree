@@ -1,4 +1,4 @@
-import { FaAward, FaUsers, FaClock, FaShieldAlt, FaChartLine, FaHandshake } from 'react-icons/fa';
+import { Award, Users, Clock, Shield, TrendingUp, UserCheck } from 'lucide-react';
 
 /**
  * Why Choose Us section component
@@ -7,32 +7,32 @@ import { FaAward, FaUsers, FaClock, FaShieldAlt, FaChartLine, FaHandshake } from
 export default function WhyChooseUs() {
   const benefits = [
     {
-      icon: <FaAward className="text-4xl" />,
+      icon: <Award className="w-10 h-10" />,
       title: 'ISO Certified',
       description: 'Quality management systems certified to international standards',
     },
     {
-      icon: <FaUsers className="text-4xl" />,
+      icon: <Users className="w-10 h-10" />,
       title: 'Trained Staff',
       description: 'Professionally trained and background-verified personnel',
     },
     {
-      icon: <FaClock className="text-4xl" />,
+      icon: <Clock className="w-10 h-10" />,
       title: '24/7 Support',
       description: 'Round-the-clock customer service and emergency response',
     },
     {
-      icon: <FaShieldAlt className="text-4xl" />,
+      icon: <Shield className="w-10 h-10" />,
       title: 'Reliable & Secure',
       description: 'Comprehensive insurance coverage and safety protocols',
     },
     {
-      icon: <FaChartLine className="text-4xl" />,
+      icon: <TrendingUp className="w-10 h-10" />,
       title: 'Cost Effective',
       description: 'Competitive pricing with transparent billing and no hidden costs',
     },
     {
-      icon: <FaHandshake className="text-4xl" />,
+      icon: <UserCheck className="w-10 h-10" />,
       title: 'Trusted Partner',
       description: 'Long-term partnerships with 500+ satisfied clients',
     },

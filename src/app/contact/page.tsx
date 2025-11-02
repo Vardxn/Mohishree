@@ -24,7 +24,6 @@ export default function ContactPage() {
       details: [
         businessConfig.phoneNumbers.primary,
         businessConfig.phoneNumbers.secondary,
-        businessConfig.phoneNumbers.toll_free,
       ],
     },
     {

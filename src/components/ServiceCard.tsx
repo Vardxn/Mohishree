@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { FaBroom, FaShieldAlt, FaBuilding, FaCoffee, FaLeaf, FaBug, FaTools, FaRecycle, FaArrowRight } from 'react-icons/fa';
+import { Sparkles, Shield, Building2, Coffee, Leaf, Bug, Wrench, Recycle, ArrowRight } from 'lucide-react';
 
 interface ServiceCardProps {
   service: {
@@ -16,14 +16,14 @@ interface ServiceCardProps {
  */
 export default function ServiceCard({ service }: ServiceCardProps) {
   const iconMap: { [key: string]: JSX.Element } = {
-    FaBroom: <FaBroom className="text-4xl" />,
-    FaShieldAlt: <FaShieldAlt className="text-4xl" />,
-    FaBuilding: <FaBuilding className="text-4xl" />,
-    FaCoffee: <FaCoffee className="text-4xl" />,
-    FaLeaf: <FaLeaf className="text-4xl" />,
-    FaBug: <FaBug className="text-4xl" />,
-    FaTools: <FaTools className="text-4xl" />,
-    FaRecycle: <FaRecycle className="text-4xl" />,
+    FaBroom: <Sparkles className="w-10 h-10" />,
+    FaShieldAlt: <Shield className="w-10 h-10" />,
+    FaBuilding: <Building2 className="w-10 h-10" />,
+    FaCoffee: <Coffee className="w-10 h-10" />,
+    FaLeaf: <Leaf className="w-10 h-10" />,
+    FaBug: <Bug className="w-10 h-10" />,
+    FaTools: <Wrench className="w-10 h-10" />,
+    FaRecycle: <Recycle className="w-10 h-10" />,
   };
 
   return (
@@ -31,7 +31,7 @@ export default function ServiceCard({ service }: ServiceCardProps) {
       <div className="p-8">
         {/* Icon */}
         <div className="bg-primary-100 text-primary-600 w-16 h-16 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary-600 group-hover:text-white transition-colors">
-          {iconMap[service.icon] || <FaBuilding className="text-4xl" />}
+          {iconMap[service.icon] || <Building2 className="w-10 h-10" />}
         </div>
 
         {/* Title */}
@@ -50,7 +50,7 @@ export default function ServiceCard({ service }: ServiceCardProps) {
           className="inline-flex items-center gap-2 text-primary-600 font-semibold hover:gap-3 transition-all"
         >
           Learn More
-          <FaArrowRight />
+          <ArrowRight className="w-4 h-4" />
         </Link>
       </div>
 
