@@ -24,32 +24,38 @@ export async function POST(request: NextRequest) {
     // Validate request body
     const validatedData = quoteSchema.parse(body);
 
-    // Insert into database
-    const result = await query(
-      `INSERT INTO quote_requests 
-       (name, phone, email, service_address, service_category, details, status, submitted_at, updated_at)
-       VALUES ($1, $2, $3, $4, $5, $6, $7, NOW(), NOW())
-       RETURNING id`,
-      [
-        validatedData.name,
-        validatedData.phone,
-        validatedData.email,
-        validatedData.serviceAddress,
-        validatedData.serviceCategory,
-        JSON.stringify(validatedData.details),
-        'Pending',
-      ]
-    );
+    let quoteId = null;
+
+    // Try to insert into database, but don't fail if DB is unavailable
+    try {
+      const result = await query(
+        `INSERT INTO quote_requests 
+         (name, phone, email, service_address, service_category, details, status, submitted_at, updated_at)
+         VALUES ($1, $2, $3, $4, $5, $6, $7, NOW(), NOW())
+         RETURNING id`,
+        [
+          validatedData.name,
+          validatedData.phone,
+          validatedData.email,
+          validatedData.serviceAddress,
+          validatedData.serviceCategory,
+          JSON.stringify(validatedData.details),
+          'Pending',
+        ]
+      );
+      quoteId = result.rows[0].id;
+    } catch (dbError) {
+      console.error('Database error (continuing with email):', dbError);
+      // Continue even if database fails
+    }
 
     // Send email notification
     try {
       const transporter = nodemailer.createTransport({
-        host: process.env.SMTP_HOST,
-        port: Number(process.env.SMTP_PORT),
-        secure: false,
+        service: 'gmail',
         auth: {
           user: process.env.SMTP_USER,
-          pass: process.env.SMTP_PASSWORD,
+          pass: process.env.SMTP_PASS,
         },
       });
 
@@ -104,20 +110,22 @@ export async function POST(request: NextRequest) {
       `;
 
       await transporter.sendMail({
-        from: process.env.EMAIL_FROM || 'noreply@mohishreejcmk.com',
-        to: businessConfig.email.primary,
+        from: process.env.EMAIL_FROM || 'mohishreejcmk2025@gmail.com',
+        to: [businessConfig.email.primary, 'vardan2701@gmail.com'],
         subject: `New Quote Request - ${validatedData.serviceCategory}`,
         html: htmlContent,
       });
     } catch (emailError) {
       console.error('Failed to send email:', emailError);
+      // If email fails, throw error since we need notification
+      throw new Error('Failed to send quote notification email');
     }
 
     return NextResponse.json(
       {
         success: true,
         message: 'Quote request submitted successfully',
-        data: { id: result.rows[0].id },
+        data: { id: quoteId || 'pending' },
       },
       { status: 201 }
     );

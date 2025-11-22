@@ -277,6 +277,71 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Service Areas Section */}
+      <section className="py-16 sm:py-20 md:py-24 bg-gradient-to-r from-primary to-primary-700 text-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-10 sm:mb-12 md:mb-14">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 font-heading">
+              Serving Across Maharashtra
+            </h2>
+            <p className="text-lg sm:text-xl md:text-2xl opacity-90 max-w-3xl mx-auto">
+              Professional facility services available in multiple locations
+            </p>
+          </div>
+
+          <div className="max-w-5xl mx-auto">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 sm:gap-6">
+              {[
+                'Chhatrapati Sambhajinagar',
+                'Aurangabad District',
+                'Jalna',
+                'Parbhani',
+                'Beed',
+                'Ahmednagar',
+              ].map((area, index) => (
+                <div
+                  key={index}
+                  className="bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-all duration-300 rounded-lg p-4 sm:p-6 text-center group"
+                >
+                  <div className="text-3xl sm:text-4xl mb-2 sm:mb-3">📍</div>
+                  <p className="text-sm sm:text-base md:text-lg font-semibold group-hover:scale-105 transition-transform">
+                    {area}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-10 sm:mt-12 text-center">
+              <p className="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8">
+                Ready to get started in your area?
+              </p>
+              <div className="flex flex-col sm:flex-row justify-center gap-4">
+                <Button
+                  size="lg"
+                  variant="accent"
+                  className="text-base sm:text-lg md:text-xl px-8 sm:px-10 md:px-12 py-4 sm:py-5 md:py-6"
+                  asChild
+                >
+                  <a href="tel:+919423679285">
+                    📞 Call: +91 94236 79285
+                  </a>
+                </Button>
+                <Button
+                  size="lg"
+                  variant="secondary"
+                  className="bg-white text-primary hover:bg-gray-100 text-base sm:text-lg md:text-xl px-8 sm:px-10 md:px-12 py-4 sm:py-5 md:py-6"
+                  asChild
+                >
+                  <Link href="/get-a-quote">
+                    Get Free Quote
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Testimonials Section */}
       <section className="py-12 sm:py-16 md:py-20 bg-background">
         <div className="container mx-auto px-4">
