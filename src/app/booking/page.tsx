@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { MessageCircle, Mail } from 'lucide-react';
+import businessConfig from '@/lib/config';
 
 export const metadata: Metadata = {
   title: 'Book a Service | Mohishree Facility Services',
@@ -10,7 +11,7 @@ export default function BookingPage() {
   const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '919423679385';
   const whatsappMessage = encodeURIComponent('Hi! I would like to book a service. Can you help me?');
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
-  const emailLink = 'mailto:mohishreejcmk2025@gmail.com?subject=Service%20Booking%20Request';
+  const emailLink = `mailto:${businessConfig.email.primary}?subject=Service%20Booking%20Request`;
 
   return (
     <div className="min-h-screen bg-background">
@@ -34,32 +35,36 @@ export default function BookingPage() {
           <div className="max-w-3xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* WhatsApp Option */}
-              <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-lg p-8 text-center border-2 border-green-300">
+              <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-lg p-8 text-center border-2 border-green-300 hover:shadow-lg transition-shadow">
                 <MessageCircle className="w-16 h-16 text-green-600 mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-green-900 mb-2">Chat on WhatsApp</h3>
-                <p className="text-green-800 mb-6">
+                <h3 className="text-2xl font-bold text-green-900 mb-2">
+                  Chat on WhatsApp
+                </h3>
+                <p className="text-green-800 mb-6 text-sm">
                   Message us directly for quick booking and service details
                 </p>
                 <a
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-8 rounded-lg transition-colors"
+                  className="inline-block bg-green-500 hover:bg-green-600 active:bg-green-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors"
                 >
                   Open WhatsApp
                 </a>
               </div>
 
               {/* Email Option */}
-              <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg p-8 text-center border-2 border-blue-300">
+              <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg p-8 text-center border-2 border-blue-300 hover:shadow-lg transition-shadow">
                 <Mail className="w-16 h-16 text-blue-600 mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-blue-900 mb-2">Send Email</h3>
-                <p className="text-blue-800 mb-6">
+                <h3 className="text-2xl font-bold text-blue-900 mb-2">
+                  Send Email
+                </h3>
+                <p className="text-blue-800 mb-6 text-sm">
                   Email us your booking details and we'll confirm within 24 hours
                 </p>
                 <a
                   href={emailLink}
-                  className="inline-block bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-8 rounded-lg transition-colors"
+                  className="inline-block bg-blue-500 hover:bg-blue-600 active:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors"
                 >
                   Send Email
                 </a>
@@ -69,31 +74,33 @@ export default function BookingPage() {
         </div>
       </section>
 
-      {/* Info Section */}
+      {/* Service Info */}
       <section className="py-12 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-8">Service Information</h2>
+            <h2 className="text-3xl font-bold text-center mb-8 text-text-primary">
+              Service Information
+            </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="text-center">
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl">⚡</span>
                 </div>
-                <h3 className="font-semibold mb-2">Quick Response</h3>
+                <h3 className="font-semibold mb-2 text-text-primary">Quick Response</h3>
                 <p className="text-sm text-text-secondary">We respond within 24 hours</p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl">📅</span>
                 </div>
-                <h3 className="font-semibold mb-2">Flexible Scheduling</h3>
+                <h3 className="font-semibold mb-2 text-text-primary">Flexible Scheduling</h3>
                 <p className="text-sm text-text-secondary">Book at your preferred time</p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl">✓</span>
                 </div>
-                <h3 className="font-semibold mb-2">Professional Service</h3>
+                <h3 className="font-semibold mb-2 text-text-primary">Professional Service</h3>
                 <p className="text-sm text-text-secondary">Quality assured by experts</p>
               </div>
             </div>
