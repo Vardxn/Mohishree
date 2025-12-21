@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 };
 
 export default function GetQuotePage() {
-  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '919423679385';
+  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '919423679285';
   const whatsappMessage = encodeURIComponent('Hi! I would like to get a free quote for your facility management services.');
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
   const emailLink = `mailto:${businessConfig.email.primary}?subject=Quote%20Request`;
@@ -47,7 +47,7 @@ export default function GetQuotePage() {
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block bg-green-500 hover:bg-green-600 active:bg-green-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors"
+                  className="inline-block bg-secondary hover:bg-[#267347] active:bg-[#1F5B38] text-white font-semibold py-3 px-8 rounded-lg transition-colors"
                 >
                   Open WhatsApp
                 </a>

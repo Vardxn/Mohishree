@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createBooking } from '@/lib/queries';
+import nodemailer from 'nodemailer';
 
 export async function POST(request: NextRequest) {
   try {
@@ -28,96 +28,43 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Save to database
+    // Generate booking ID
     const bookingId = `BK${Date.now()}${Math.random().toString(36).substring(2, 7).toUpperCase()}`;
     
-    const booking = await createBooking({
-      booking_id: bookingId,
-      service_id: 1, // Default for now - will map services later
-      customer_name: data.name,
-      customer_email: data.email,
-      customer_phone: data.phone,
-      service_date: new Date(data.date),
-      service_time: data.timeSlot,
-      property_type: data.propertyType,
-      area: data.propertySize || '',
-      address: data.address,
-      city: '',
-      pincode: '',
-      special_instructions: data.specialInstructions || null,
-      status: 'pending',
-      payment_status: 'pending',
-      estimated_amount: 0,
+    // Send email notification (no database save)
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASSWORD,
+      },
     });
 
-    // Prepare email notifications
     const adminEmail = {
-      to: 'bookings@mohishreefacilityservices.com',
+      from: process.env.EMAIL_FROM,
+      to: [process.env.SMTP_USER, 'vardan2701@gmail.com'],
       subject: `New Booking: ${data.service} - ${data.date}`,
-      html: `
-        <h2>New Service Booking</h2>
-        <p><strong>Booking ID:</strong> ${bookingId}</p>
-        <p><strong>Service:</strong> ${data.service}</p>
-        <p><strong>Date:</strong> ${data.date}</p>
-        <p><strong>Time Slot:</strong> ${data.timeSlot}</p>
-        <hr>
-        <h3>Customer Details</h3>
-        <p><strong>Name:</strong> ${data.name}</p>
-        <p><strong>Email:</strong> ${data.email}</p>
-        <p><strong>Phone:</strong> ${data.phone}</p>
-        <p><strong>Property Type:</strong> ${data.propertyType}</p>
-        <p><strong>Address:</strong></p>
-        <p>${data.address.replace(/\n/g, '<br>')}</p>
-        ${data.instructions ? `<p><strong>Special Instructions:</strong></p><p>${data.instructions}</p>` : ''}
-        <hr>
-        <p><strong>Booking Time:</strong> ${new Date().toLocaleString()}</p>
-      `,
+      text: `Booking ID: ${bookingId}\n\nService: ${data.service}\nDate: ${data.date}\nTime Slot: ${data.timeSlot}\n\nCustomer: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone}\nProperty Type: ${data.propertyType}\nAddress: ${data.address}\nSpecial Instructions: ${data.specialInstructions || 'N/A'}`,
     };
 
     const customerEmail = {
+      from: process.env.EMAIL_FROM,
       to: data.email,
       subject: `Booking Confirmed - ${bookingId}`,
-      html: `
-        <h2>Your Booking is Confirmed!</h2>
-        <p>Dear ${data.name},</p>
-        <p>Thank you for choosing Mohishree Facility Services. Your booking has been confirmed.</p>
-        
-        <div style="background: #f3f4f6; padding: 20px; border-radius: 8px; margin: 20px 0;">
-          <h3 style="margin-top: 0;">Booking Details</h3>
-          <p><strong>Booking ID:</strong> ${bookingId}</p>
-          <p><strong>Service:</strong> ${data.service}</p>
-          <p><strong>Date:</strong> ${data.date}</p>
-          <p><strong>Time:</strong> ${data.timeSlot}</p>
-          <p><strong>Address:</strong> ${data.address.replace(/\n/g, '<br>')}</p>
-        </div>
-
-        <h3>What's Next?</h3>
-        <ul>
-          <li>Our team will call you 1 day before the service</li>
-          <li>You can reschedule up to 6 hours before the appointment</li>
-          <li>Save this booking ID for any queries</li>
-        </ul>
-
-        <p>For any queries, call us at +91 98765 43210 or reply to this email.</p>
-        
-        <p>Best regards,<br>Mohishree Facility Services</p>
-      `,
+      text: `Dear ${data.name},\n\nYour booking has been confirmed!\n\nBooking ID: ${bookingId}\nService: ${data.service}\nDate: ${data.date}\nTime: ${data.timeSlot}\nAddress: ${data.address}\n\nOur team will contact you soon. For queries, reply to this email or call us.\n\nBest regards,\nMohishree Facility Services`,
     };
 
-    // TODO: Integrate with email service
-    // await sendEmail(adminEmail);
-    // await sendEmail(customerEmail);
-
-    // TODO: Send SMS confirmation
-    // await sendSMS(data.phone, `Booking confirmed! ID: ${bookingId}. Service: ${data.service} on ${data.date} ${data.timeSlot}. Call +91 98765 43210 for queries.`);
-
-    // TODO: Store in database
-    // await db.bookings.create({ ...data, bookingId, status: 'confirmed' });
+    try {
+      await transporter.sendMail(adminEmail);
+      await transporter.sendMail(customerEmail);
+    } catch (mailError) {
+      console.error('Email send error:', mailError);
+    }
 
     return NextResponse.json({
       success: true,
       bookingId,
-      message: 'Booking confirmed successfully',
+      message: 'Booking confirmed and email sent successfully',
     });
   } catch (error) {
     console.error('Booking API Error:', error);

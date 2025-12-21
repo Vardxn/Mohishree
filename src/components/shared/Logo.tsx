@@ -26,7 +26,7 @@ export default function Logo({ className = '' }: { className?: string }) {
         fontFamily="'Inter', 'Helvetica', sans-serif"
         fontSize="8"
         fontWeight="400"
-        fill="#666666"
+        fill="#333333"
         letterSpacing="1"
       >
         FACILITY SERVICES

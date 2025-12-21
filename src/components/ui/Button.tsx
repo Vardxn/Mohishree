@@ -12,19 +12,19 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
  */
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant = 'primary', size = 'md', isLoading, children, disabled, ...props }, ref) => {
-    const baseStyles = 'inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed';
+    const baseStyles = 'inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed touch-manipulation active:opacity-90';
     
     const variants = {
-      primary: 'bg-[#0057B8] text-white hover:bg-[#004494] focus:ring-[#0057B8]',
-      secondary: 'bg-[#2E8B57] text-white hover:bg-[#267347] focus:ring-[#2E8B57]',
-      accent: 'bg-[#FFD700] text-gray-900 hover:bg-[#E6C200] focus:ring-[#FFD700]',
-      outline: 'bg-transparent border-2 border-[#0057B8] text-[#0057B8] hover:bg-[#0057B8] hover:text-white focus:ring-[#0057B8]',
+      primary: 'bg-[#0057B8] text-white hover:bg-[#004494] focus:ring-[#0057B8] active:bg-[#002D5C]',
+      secondary: 'bg-[#2E8B57] text-white hover:bg-[#267347] focus:ring-[#2E8B57] active:bg-[#1F5B38]',
+      accent: 'bg-[#FFD700] text-gray-900 hover:bg-[#E6C200] focus:ring-[#FFD700] active:bg-[#CCAC00]',
+      outline: 'bg-transparent border-2 border-[#0057B8] text-[#0057B8] hover:bg-[#0057B8] hover:text-white focus:ring-[#0057B8] active:bg-[#002D5C] active:text-white',
     };
     
     const sizes = {
-      sm: 'px-4 py-2 text-sm',
-      md: 'px-6 py-3 text-base',
-      lg: 'px-8 py-4 text-lg',
+      sm: 'px-4 py-2.5 text-sm min-h-[40px] min-w-[40px]',
+      md: 'px-6 py-3 text-base min-h-[44px] min-w-[44px]',
+      lg: 'px-8 py-4 text-lg min-h-[52px] min-w-[52px] sm:min-h-[44px] sm:min-w-[44px]',
     };
 
     return (

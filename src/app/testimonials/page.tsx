@@ -40,7 +40,7 @@ export default function TestimonialsPage() {
   const testimonials = [
     {
       name: 'Rajesh Patil',
-      location: 'Sambhajinagar',
+      location: 'Aurangabad',
       service: 'Office Cleaning',
       rating: 5,
       date: 'September 2024',
@@ -58,7 +58,7 @@ export default function TestimonialsPage() {
     },
     {
       name: 'Priya Sharma',
-      location: 'Chh. Sambhajinagar',
+      location: 'Aurangabad',
       service: 'Home Deep Cleaning',
       rating: 5,
       date: 'October 2024',
@@ -76,7 +76,7 @@ export default function TestimonialsPage() {
     },
     {
       name: 'Kavita Joshi',
-      location: 'Sambhajinagar',
+      location: 'Aurangabad',
       service: 'Sofa Cleaning',
       rating: 5,
       date: 'September 2024',

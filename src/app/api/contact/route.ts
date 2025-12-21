@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
-import { createContactMessage } from '@/lib/queries';
 import nodemailer from 'nodemailer';
 
 const contactSchema = z.object({
@@ -18,21 +17,12 @@ export async function POST(request: NextRequest) {
     // Validate request body
     const validatedData = contactSchema.parse(body);
 
-    // Save to database
-    const contactMessage = await createContactMessage({
-      name: validatedData.name,
-      email: validatedData.email,
-      phone: validatedData.phone || null,
-      subject: validatedData.subject,
-      message: validatedData.message,
-    });
-
-    // Send email notification
+    // Send email notification (no database)
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
         user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
+        pass: process.env.SMTP_PASSWORD,
       },
     });
 
@@ -40,7 +30,7 @@ export async function POST(request: NextRequest) {
       from: process.env.EMAIL_FROM,
       to: [process.env.SMTP_USER, 'vardan2701@gmail.com'],
       subject: `Contact Form: ${validatedData.subject}`,
-      text: `Name: ${validatedData.name}\nEmail: ${validatedData.email}\nPhone: ${validatedData.phone || ''}\nMessage: ${validatedData.message}`,
+      text: `Name: ${validatedData.name}\nEmail: ${validatedData.email}\nPhone: ${validatedData.phone || 'N/A'}\nMessage: ${validatedData.message}`,
     };
 
     try {
@@ -54,7 +44,6 @@ export async function POST(request: NextRequest) {
       {
         success: true,
         message: 'Contact inquiry submitted and email sent successfully',
-        data: { id: contactMessage.id },
       },
       { status: 201 }
     );

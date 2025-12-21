@@ -12,7 +12,7 @@ export default function AboutPage() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-primary to-primary-700 text-white py-20">
+      <section className="bg-gradient-to-r from-primary to-primary-700 text-white py-16 sm:py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl lg:text-6xl font-bold mb-6 font-heading">
@@ -29,7 +29,7 @@ export default function AboutPage() {
       </section>
 
       {/* About Content - Our Story */}
-      <section className="py-20 bg-white">
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl font-bold text-text-primary mb-8 font-heading">
@@ -37,7 +37,7 @@ export default function AboutPage() {
             </h2>
             <div className="prose prose-lg max-w-none">
               <p className="text-xl text-text-secondary leading-relaxed mb-6">
-                Established in <strong className="text-primary">2019</strong>, <strong className="text-text-primary">Mohishree Facility Services</strong> has rapidly evolved into a trusted and reliable name in the cleaning and housekeeping industry. In just <strong>6 years of dedicated service</strong>, we have established ourselves as a modern, dynamic company that delivers exceptional results across Aurangabad Cantonment and beyond.
+                Established in <strong className="text-primary">{businessConfig.yearEstablished}</strong>, <strong className="text-text-primary">Mohishree Facility Services</strong> has rapidly evolved into a trusted and reliable name in the cleaning and housekeeping industry. In just <strong>{businessConfig.yearsOfService} years of dedicated service</strong>, we have established ourselves as a modern, dynamic company that delivers exceptional results across {businessConfig.primaryCity} and beyond.
               </p>
               
               <p className="text-lg text-text-secondary leading-relaxed mb-6">
@@ -45,7 +45,7 @@ export default function AboutPage() {
               </p>
 
               <p className="text-lg text-text-secondary leading-relaxed mb-6">
-                From residential homes to complex commercial and industrial facilities, we bring professionalism, expertise, and a customer-first approach to every project. Our team of trained professionals is equipped with the latest tools and technology, combined with eco-friendly cleaning solutions that ensure both superior results and environmental responsibility.
+                From residential homes to complex commercial and industrial facilities, we bring professionalism, expertise, and a customer-first approach to every project. Our team of trained professionals is equipped with the latest tools and technology, paired with eco-friendly cleaning solutions that ensure both superior results and environmental responsibility.
               </p>
 
               <p className="text-lg text-text-secondary leading-relaxed mb-6">
@@ -61,7 +61,7 @@ export default function AboutPage() {
       </section>
 
       {/* Mission & Vision Section */}
-      <section className="py-20 bg-background">
+      <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="grid md:grid-cols-2 gap-8 mb-12">
@@ -138,7 +138,7 @@ export default function AboutPage() {
       </section>
 
       {/* Why Choose Us - USP Section */}
-      <section className="py-20 bg-white">
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-4xl font-bold text-text-primary mb-12 font-heading text-center">
@@ -209,7 +209,7 @@ export default function AboutPage() {
       </section>
 
       {/* Team Section (Placeholder) */}
-      <section className="py-20 bg-background">
+      <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl font-bold text-text-primary mb-8 font-heading">
@@ -228,7 +228,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-primary to-primary-700 text-white">
+      <section className="py-16 sm:py-20 bg-gradient-to-r from-primary to-primary-700 text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-6 font-heading">
             Ready to Work With Us?

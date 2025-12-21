@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 };
 
 export default function BookingPage() {
-  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '919423679385';
+  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '919423679285';
   const whatsappMessage = encodeURIComponent('Hi! I would like to book a service. Can you help me?');
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
   const emailLink = `mailto:${businessConfig.email.primary}?subject=Service%20Booking%20Request`;
@@ -47,7 +47,7 @@ export default function BookingPage() {
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block bg-green-500 hover:bg-green-600 active:bg-green-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors"
+                  className="inline-block bg-secondary hover:bg-[#267347] active:bg-[#1F5B38] text-white font-semibold py-3 px-8 rounded-lg transition-colors"
                 >
                   Open WhatsApp
                 </a>
@@ -102,31 +102,6 @@ export default function BookingPage() {
                 </div>
                 <h3 className="font-semibold mb-2 text-text-primary">Professional Service</h3>
                 <p className="text-sm text-text-secondary">Quality assured by experts</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-  );
-}
-                </div>
-                <h3 className="font-semibold mb-2">Flexible Timing</h3>
-                <p className="text-sm text-text-secondary">Choose your slot</p>
-              </div>
-              <div className="text-center">
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">✅</span>
-                </div>
-                <h3 className="font-semibold mb-2">Confirmation</h3>
-                <p className="text-sm text-text-secondary">Instant SMS & email</p>
-              </div>
-              <div className="text-center">
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">🔄</span>
-                </div>
-                <h3 className="font-semibold mb-2">Easy Reschedule</h3>
-                <p className="text-sm text-text-secondary">Free until 6hrs before</p>
               </div>
             </div>
           </div>

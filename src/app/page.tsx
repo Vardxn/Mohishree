@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { Home, Building2, Droplets, Sofa, Bath, Wind, Sparkles, Factory, GraduationCap, ShoppingBag, Briefcase, DoorClosed, Star, Quote, CheckCircle2, Leaf, Users, Wrench } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
+import businessConfig from '@/lib/config';
 
 export default function HomePage() {
   const services = [
@@ -53,63 +54,34 @@ export default function HomePage() {
     },
   ];
 
-  const testimonials = [
-    {
-      quote: 'Mohishree Facility Services gives excellent help! Their team is friendly and fast. They fix problems well and make my home nice. I called them for a leaky sink, and they came quickly. The work was great, and the price was fair. I feel safe with their service. I will call them again for any repairs. Highly recommend Mohishree!',
-      name: 'A. Kumar',
-      company: 'Verified Justdial Reviewer',
-      rating: 5,
-      verified: true,
-      featured: true,
-    },
-    {
-      quote: 'Mohishree transformed our office space. Their attention to detail and professionalism is outstanding!',
-      name: 'Rajesh Patil',
-      company: 'Corporate Manager, Pune',
-      rating: 5,
-    },
-    {
-      quote: 'We rely on Mohishree for all our pharmaceutical facility cleaning. They understand our strict compliance needs.',
-      name: 'Dr. Sneha Deshmukh',
-      company: 'Factory Manager, Aurangabad',
-      rating: 5,
-    },
-    {
-      quote: 'Best home deep cleaning service! My house has never looked better. Highly recommended!',
-      name: 'Priya Sharma',
-      company: 'Homeowner, Sambhajinagar',
-      rating: 5,
-    },
-  ];
-
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative py-16 sm:py-24 md:py-32 lg:py-40 overflow-hidden">
+      <section className="relative py-12 sm:py-24 md:py-32 lg:py-40 overflow-hidden">
         {/* Logo Background (20% opacity) */}
         <div className="absolute inset-0 bg-white bg-center bg-no-repeat" aria-hidden="true">
           <div className="w-full h-full bg-[url('/images/mohishree-logo.jpg')] bg-center bg-contain bg-no-repeat opacity-20" />
         </div>
         <div className="relative container mx-auto px-4 z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-primary text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 font-heading leading-tight">
+            <h1 className="text-primary text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 sm:mb-4 md:mb-6 font-heading leading-tight">
               Eco-Friendly, Reliable, Professional Facility Services
             </h1>
-            <p className="text-gray-700 text-base sm:text-lg md:text-xl lg:text-2xl mb-3 sm:mb-4">
+            <p className="text-gray-700 text-base sm:text-lg md:text-xl lg:text-2xl mb-2 sm:mb-3">
               Established 2019 • 6 Years of Excellence • 4.4★ Rated
             </p>
-            <p className="text-gray-600 text-sm sm:text-base md:text-lg lg:text-xl mb-6 sm:mb-8 px-4">
-              From home deep cleaning to industrial solutions—your trusted partner for clean, safe, healthy environments in Sambhajinagar
+            <p className="text-gray-600 text-sm sm:text-base md:text-lg lg:text-xl mb-6 sm:mb-8 px-2 sm:px-4">
+              From home deep cleaning to industrial solutions—your trusted partner for clean, safe, healthy environments in Aurangabad
             </p>
-            <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 px-4">
+            <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 px-2 sm:px-4">
               <Link href="/contact" className="w-full sm:w-auto">
-                <Button variant="accent" size="lg" className="w-full sm:w-auto text-base sm:text-lg md:text-xl px-8 sm:px-10 md:px-12 py-4 sm:py-5 md:py-6">
-                  Get a Free Assessment
+                <Button variant="accent" size="lg" className="w-full sm:w-auto text-base sm:text-lg md:text-xl px-6 sm:px-10 md:px-12 py-3 sm:py-4 md:py-5 min-h-[52px]">
+                  🔍 Get a Free Assessment
                 </Button>
               </Link>
               <Link href="/about" className="w-full sm:w-auto">
-                <Button variant="outline" size="lg" className="w-full sm:w-auto text-base sm:text-lg md:text-xl px-8 sm:px-10 md:px-12 py-4 sm:py-5 md:py-6 bg-white/10 border-white hover:bg-white hover:text-primary">
-                  Learn More
+                <Button variant="outline" size="lg" className="w-full sm:w-auto text-base sm:text-lg md:text-xl px-6 sm:px-10 md:px-12 py-3 sm:py-4 md:py-5 min-h-[52px] bg-white/10 border-white hover:bg-white hover:text-primary">
+                  📖 Learn More
                 </Button>
               </Link>
             </div>
@@ -136,37 +108,37 @@ export default function HomePage() {
       {/* Services Overview Section */}
       <section className="py-12 sm:py-16 md:py-20 bg-background">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-10 sm:mb-12 md:mb-16">
+          <div className="text-center mb-8 sm:mb-12 md:mb-16">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-3 sm:mb-4 font-heading">
               Our Comprehensive Services
             </h2>
-            <p className="text-base sm:text-lg md:text-xl text-text-secondary max-w-2xl mx-auto px-4">
+            <p className="text-base sm:text-lg md:text-xl text-text-secondary max-w-2xl mx-auto px-2 sm:px-4">
               Professional cleaning and facility management solutions for every need
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
             {services.map((service) => (
               <Link key={service.slug} href={`/services/${service.slug}`}>
-                <Card className="h-full hover:shadow-card-hover transition-all duration-300 cursor-pointer group">
-                  <div className="relative h-40 sm:h-44 md:h-48 overflow-hidden">
+                <Card className="h-full hover:shadow-card-hover transition-all duration-300 cursor-pointer group overflow-hidden">
+                  <div className="relative h-32 sm:h-36 md:h-40 overflow-hidden">
                     <img
                       src={service.image}
                       alt={service.title}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                    <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 text-white">
-                      <div className="w-10 h-10 sm:w-12 sm:h-12">
+                    <div className="absolute bottom-2 sm:bottom-3 left-2 sm:left-3 text-white">
+                      <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12">
                         {service.icon}
                       </div>
                     </div>
                   </div>
                   <CardHeader>
-                    <CardTitle className="text-base sm:text-lg group-hover:text-primary transition-colors">
+                    <CardTitle className="text-sm sm:text-base md:text-lg group-hover:text-primary transition-colors">
                       {service.title}
                     </CardTitle>
-                    <CardDescription className="text-sm">{service.description}</CardDescription>
+                    <CardDescription className="text-xs sm:text-sm">{service.description}</CardDescription>
                   </CardHeader>
                 </Card>
               </Link>
@@ -290,21 +262,14 @@ export default function HomePage() {
 
           <div className="max-w-5xl mx-auto">
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 sm:gap-6">
-              {[
-                'Chhatrapati Sambhajinagar',
-                'Aurangabad District',
-                'Jalna',
-                'Parbhani',
-                'Beed',
-                'Ahmednagar',
-              ].map((area, index) => (
+              {businessConfig.serviceAreas.slice(0, 6).map((area, index) => (
                 <div
                   key={index}
                   className="bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-all duration-300 rounded-lg p-4 sm:p-6 text-center group"
                 >
                   <div className="text-3xl sm:text-4xl mb-2 sm:mb-3">📍</div>
                   <p className="text-sm sm:text-base md:text-lg font-semibold group-hover:scale-105 transition-transform">
-                    {area}
+                    {area.split('(')[0].trim()}
                   </p>
                 </div>
               ))}
@@ -329,85 +294,6 @@ export default function HomePage() {
                 </Link>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials Section */}
-      <section className="py-12 sm:py-16 md:py-20 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-8 sm:mb-10 md:mb-12">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-3 sm:mb-4 font-heading">
-              What Our Clients Say
-            </h2>
-            <div className="flex items-center justify-center space-x-2 mb-2">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className={`w-5 h-5 sm:w-6 sm:h-6 ${i < 4 ? 'fill-yellow-400 text-yellow-400' : 'text-yellow-400 opacity-50'}`} />
-              ))}
-              <span className="text-lg sm:text-xl font-bold text-primary ml-2">4.4</span>
-            </div>
-            <p className="text-sm sm:text-base text-text-secondary">Based on verified customer reviews</p>
-          </div>
-
-          {/* Featured Testimonial */}
-          <div className="max-w-4xl mx-auto mb-8 sm:mb-10 md:mb-12">
-            <Card className="bg-gradient-to-br from-blue-50 to-indigo-50 border-2 border-primary shadow-xl">
-              <CardContent className="p-6 sm:p-8">
-                <div className="flex items-start justify-between mb-4 sm:mb-6">
-                  <Quote className="w-10 h-10 sm:w-12 sm:h-12 text-primary opacity-20" />
-                  <div className="flex">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 sm:w-5 sm:h-5 fill-yellow-400 text-yellow-400" />
-                    ))}
-                  </div>
-                </div>
-                <p className="text-sm sm:text-base md:text-lg text-text-primary leading-relaxed italic mb-4 sm:mb-6">
-                  "{testimonials.find(t => t.featured)?.quote}"
-                </p>
-                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between border-t pt-4 gap-3">
-                  <div>
-                    <p className="font-bold text-text-primary text-sm sm:text-base">{testimonials.find(t => t.featured)?.name}</p>
-                    <p className="text-xs sm:text-sm text-text-secondary">{testimonials.find(t => t.featured)?.company}</p>
-                  </div>
-                  <div className="flex items-center space-x-2 text-green-600">
-                    <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5" />
-                    <span className="text-xs sm:text-sm font-semibold">Verified Review</span>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* Other Testimonials */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 max-w-6xl mx-auto">
-            {testimonials.filter(t => !t.featured).map((testimonial, index) => (
-              <Card key={index} className="hover:shadow-card-hover transition-shadow">
-                <CardContent className="pt-5 sm:pt-6">
-                  <div className="flex justify-between items-start mb-4">
-                    <Quote className="w-7 h-7 sm:w-8 sm:h-8 text-primary/20" />
-                    <div className="flex">
-                      {[...Array(testimonial.rating || 5)].map((_, i) => (
-                        <Star key={i} className="w-3 h-3 sm:w-4 sm:h-4 fill-yellow-400 text-yellow-400" />
-                      ))}
-                    </div>
-                  </div>
-                  <p className="text-sm sm:text-base text-text-secondary mb-4 sm:mb-6 italic line-clamp-4">"{testimonial.quote}"</p>
-                  <div className="border-t border-border pt-4">
-                    <p className="font-semibold text-text-primary text-sm sm:text-base">{testimonial.name}</p>
-                    <p className="text-xs sm:text-sm text-text-secondary">{testimonial.company}</p>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-
-          {/* View All Testimonials Link */}
-          <div className="text-center mt-8 sm:mt-10">
-            <Link href="/testimonials">
-              <Button variant="outline" size="lg" className="text-sm sm:text-base">
-                View All Customer Reviews
-              </Button>
-            </Link>
           </div>
         </div>
       </section>

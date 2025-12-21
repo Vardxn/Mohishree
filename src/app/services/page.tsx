@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Home, Building2, Droplets, Sofa, Bath, Wind, Sparkles, Factory, GraduationCap, ShoppingBag, Briefcase, DoorClosed } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
+import businessConfig from '@/lib/config';
 
 export const metadata: Metadata = {
   title: 'Our Services - Mohishree Facility Services',
@@ -31,7 +32,7 @@ export default function ServicesPage() {
       icon: <Sofa className="w-8 h-8" />,
     },
     {
-      slug: 'bathroom-toilet-cleaning',
+      slug: 'bathroom-cleaning',
       title: 'Bathroom & Toilet Cleaning',
       description: 'Hygienic sanitization with eco-friendly products for a sparkling clean bathroom',
       icon: <Bath className="w-8 h-8" />,
@@ -112,10 +113,10 @@ export default function ServicesPage() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-primary to-primary-700 text-white py-20">
+      <section className="bg-gradient-to-r from-primary to-primary-700 text-white py-16 sm:py-20">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl lg:text-6xl font-bold mb-6 font-heading">
+          <div className="max-w-3xl mx-auto text-center">
+            <h1 className="text-4xl lg:text-5xl font-bold mb-4 font-heading">
               Complete Facility Solutions
             </h1>
             <p className="text-xl lg:text-2xl opacity-90">
@@ -129,7 +130,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Residential Services Section */}
-      <section className="py-20 bg-white">
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-text-primary mb-4 font-heading">
@@ -166,7 +167,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Commercial Services Section */}
-      <section className="py-20 bg-background">
+      <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-text-primary mb-4 font-heading">
@@ -248,7 +249,7 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-primary to-primary-700 text-white">
+      <section className="py-16 bg-gradient-to-r from-primary to-primary-700 text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-6 font-heading">
             Need a Custom Solution?

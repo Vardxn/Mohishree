@@ -1,4 +1,4 @@
-# Mohishree Facility Services — Combined Project
+# Mohishree Facility Services
 
 A unified Next.js 14 + Tailwind CSS application consolidating features from both Mohishree repositories: `Mohishree-facility-services` and `MohishreeFacilityServices`.
 
@@ -29,7 +29,7 @@ A unified Next.js 14 + Tailwind CSS application consolidating features from both
    - Copy `.env.example` to `.env.local` and fill values.
 2. Install dependencies:
    ```powershell
-   cd .\Mohishree-Combined
+   cd <your-project-path>
    npm install
    ```
 3. Initialize database (optional local dev):

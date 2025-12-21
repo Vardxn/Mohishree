@@ -26,7 +26,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-gray-900 text-gray-300">
-      <div className="container mx-auto px-4 py-8 sm:py-10 md:py-12">
+      <div className="container mx-auto px-4 py-12 sm:py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {/* Company Info with Logo */}
           <div className="text-center sm:text-left">
@@ -40,7 +40,7 @@ export default function Footer() {
               />
               <div>
                 <h3 className="text-white font-bold text-base sm:text-lg leading-tight">Mohishree</h3>
-                <p className="text-blue-400 text-xs sm:text-sm font-semibold leading-tight">Facility Services</p>
+                <p className="text-blue-300 text-xs sm:text-sm font-semibold leading-tight">Facility Services</p>
               </div>
             </div>
             <p className="text-xs sm:text-sm mb-4">
@@ -50,7 +50,7 @@ export default function Footer() {
               <a
                 href={CONTACT.links.facebook}
                 target="_blank" rel="noopener noreferrer"
-                className="bg-gray-800 p-2 rounded-full hover:bg-blue-600 transition-colors"
+                className="bg-gray-800 p-2 rounded-full hover:bg-primary transition-colors"
                 aria-label="Facebook"
               >
                 <Facebook className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -58,7 +58,7 @@ export default function Footer() {
               <a
                 href={CONTACT.links.instagram}
                 target="_blank" rel="noopener noreferrer"
-                className="bg-gray-800 p-2 rounded-full hover:bg-pink-600 transition-colors"
+                className="bg-gray-800 p-2 rounded-full hover:bg-secondary transition-colors"
                 aria-label="Instagram"
               >
                 <Instagram className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -66,7 +66,7 @@ export default function Footer() {
               <a
                 href={CONTACT.links.justdial}
                 target="_blank" rel="noopener noreferrer"
-                className="bg-gray-800 p-2 rounded-full hover:bg-orange-600 transition-colors"
+                className="bg-gray-800 p-2 rounded-full hover:bg-primary transition-colors"
                 aria-label="JustDial"
               >
                 <Linkedin className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -76,13 +76,13 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div className="text-center sm:text-left">
-            <h3 className="text-white font-semibold text-base sm:text-lg mb-3 sm:mb-4">Quick Links</h3>
+            <h3 className="text-white font-semibold text-base sm:text-lg mb-4">Quick Links</h3>
             <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="hover:text-blue-400 transition-colors text-xs sm:text-sm"
+                    className="hover:text-primary transition-colors text-xs sm:text-sm"
                   >
                     {link.label}
                   </Link>
@@ -93,13 +93,13 @@ export default function Footer() {
 
           {/* Services */}
           <div className="text-center sm:text-left">
-            <h3 className="text-white font-semibold text-base sm:text-lg mb-3 sm:mb-4">Our Services</h3>
+            <h3 className="text-white font-semibold text-base sm:text-lg mb-4">Our Services</h3>
             <ul className="space-y-2">
               {services.map((service) => (
                 <li key={service.href}>
                   <Link
                     href={service.href}
-                    className="hover:text-blue-400 transition-colors text-xs sm:text-sm"
+                    className="hover:text-primary transition-colors text-xs sm:text-sm"
                   >
                     {service.label}
                   </Link>
@@ -110,39 +110,39 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div className="text-center sm:text-left">
-            <h3 className="text-white font-semibold text-base sm:text-lg mb-3 sm:mb-4">Contact Us</h3>
+            <h3 className="text-white font-semibold text-base sm:text-lg mb-4">Contact Us</h3>
             <ul className="space-y-3">
               <li className="flex items-start space-x-3 justify-center sm:justify-start">
-                <MapPin className="text-blue-400 w-4 h-4 sm:w-5 sm:h-5 mt-0.5 flex-shrink-0" />
+                <MapPin className="text-primary w-4 h-4 sm:w-5 sm:h-5 mt-0.5 flex-shrink-0" />
                 <span className="text-xs sm:text-sm text-left">
                   {CONTACT.address}
                 </span>
               </li>
               <li className="flex items-center space-x-3 justify-center sm:justify-start">
-                <Phone className="text-blue-400 w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
+                <Phone className="text-primary w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
                 <div className="flex flex-col text-left">
-                  <a href={`tel:${CONTACT.phone.primaryRaw}`} className="text-xs sm:text-sm hover:text-blue-400 transition-colors">
+                  <a href={`tel:${CONTACT.phone.primaryRaw}`} className="text-xs sm:text-sm hover:text-primary transition-colors">
                     {CONTACT.phone.primaryDisplay}
                   </a>
-                  <a href={`tel:${CONTACT.phone.secondaryRaw}`} className="text-xs sm:text-sm hover:text-blue-400 transition-colors">
+                  <a href={`tel:${CONTACT.phone.secondaryRaw}`} className="text-xs sm:text-sm hover:text-primary transition-colors">
                     {CONTACT.phone.secondaryDisplay}
                   </a>
-                  <a href={CONTACT.links.whatsappPrimary} target="_blank" rel="noopener noreferrer" className="text-[10px] sm:text-xs text-green-400 hover:text-green-300">
+                  <a href={CONTACT.links.whatsappPrimary} target="_blank" rel="noopener noreferrer" className="text-[10px] sm:text-xs text-secondary hover:text-primary">
                     WhatsApp: {CONTACT.phone.primaryDisplay}
                   </a>
                 </div>
               </li>
               <li className="flex items-center space-x-3 justify-center sm:justify-start">
-                <Mail className="text-blue-400 w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
+                <Mail className="text-primary w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
                 <a
                   href={`mailto:${CONTACT.email}`}
-                  className="text-xs sm:text-sm hover:text-blue-400 transition-colors break-all"
+                  className="text-xs sm:text-sm hover:text-primary transition-colors break-all"
                 >
                   {CONTACT.email}
                 </a>
               </li>
               <li className="flex items-start space-x-3 justify-center sm:justify-start">
-                <CreditCard className="text-blue-400 w-4 h-4 sm:w-5 sm:h-5 mt-0.5 flex-shrink-0" />
+                <CreditCard className="text-primary w-4 h-4 sm:w-5 sm:h-5 mt-0.5 flex-shrink-0" />
                 <span className="text-[10px] sm:text-xs text-left leading-relaxed">
                   <strong>Bank (IFSC):</strong> {CONTACT.bank.ifsc}<br />
                   <strong>A/c No.:</strong> {CONTACT.bank.accountNumber}<br />
@@ -159,7 +159,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-800 mt-6 sm:mt-8 pt-6 sm:pt-8 text-center">
+        <div className="border-t border-gray-800 mt-8 sm:mt-12 pt-6 sm:pt-8 text-center">
           <p className="text-xs sm:text-sm">
             &copy; {currentYear} Mohishree Facility Services. All rights reserved.
           </p>

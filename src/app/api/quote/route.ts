@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createQuoteRequest } from '@/lib/queries';
+import nodemailer from 'nodemailer';
 
 export async function POST(request: NextRequest) {
   try {
@@ -16,26 +16,35 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    // Save to database
+    // Generate quote ID
     const quoteId = `QT${Date.now()}${Math.random().toString(36).substring(2, 7).toUpperCase()}`;
     
-    const quote = await createQuoteRequest({
-      quote_id: quoteId,
-      name: data.name,
-      email: data.email,
-      phone: data.phone,
-      service_type: data.service,
-      property_type: data.propertyType,
-      area: data.area || '',
-      frequency: data.frequency,
-      message: data.message || null,
-      status: 'pending',
+    // Send email notification (no database save)
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASSWORD,
+      },
     });
+
+    const mailOptions = {
+      from: process.env.EMAIL_FROM,
+      to: [process.env.SMTP_USER, 'vardan2701@gmail.com'],
+      subject: `New Quote Request: ${data.service}`,
+      text: `Quote ID: ${quoteId}\n\nName: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone}\nService: ${data.service}\nProperty Type: ${data.propertyType}\nArea: ${data.area || 'N/A'}\nFrequency: ${data.frequency}\nMessage: ${data.message || 'N/A'}`,
+    };
+
+    try {
+      await transporter.sendMail(mailOptions);
+    } catch (mailError) {
+      console.error('Email send error:', mailError);
+    }
 
     return NextResponse.json({
       success: true,
-      message: 'Quote request received successfully',
-      quoteId: quote.quote_id,
+      message: 'Quote request received and email sent successfully',
+      quoteId: quoteId,
     });
   } catch (error) {
     console.error('Quote API Error:', error);
