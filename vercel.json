@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "framework": "nextjs",
+  "buildCommand": "npm run build",
+  "outputDirectory": ".next",
+  "github": { "silent": true },
+  "routes": [],
+  "env": {},
+  "ignoreCommand": "exit 0"
+}

@@ -1,39 +1,32 @@
 'use client';
 
 import { MessageCircle } from 'lucide-react';
-import Button from '@/components/ui/Button';
 
 export default function WhatsAppButton() {
-  const handleWhatsAppClick = () => {
-    const phoneNumber = '919876543210'; // Replace with actual number
-    const message = encodeURIComponent('Hi! I would like to inquire about your cleaning services.');
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
-    window.open(whatsappUrl, '_blank');
-  };
+  // Expose number & default message via env vars (set in Vercel dashboard)
+  const phoneNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '91XXXXXXXXXX';
+  const defaultMessage = process.env.NEXT_PUBLIC_WHATSAPP_MESSAGE || 'Hi! I would like to inquire about your services.';
+  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(defaultMessage)}`;
 
   return (
-    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 group">
-      <Button
-        onClick={handleWhatsAppClick}
-        size="lg"
-        className="rounded-full w-14 h-14 sm:w-16 sm:h-16 shadow-2xl bg-green-500 hover:bg-green-600 active:bg-green-700 text-white transition-all duration-300 hover:scale-110 active:scale-95"
-        aria-label="Contact us on WhatsApp"
+    <div className="fixed bottom-4 right-4 z-50 group">
+      <a
+        href={whatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Open WhatsApp chat"
+        className="relative flex items-center justify-center w-14 h-14 rounded-full bg-green-500 hover:bg-green-600 active:bg-green-700 text-white shadow-lg transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-4 focus:ring-green-300"
       >
-        <MessageCircle className="w-7 h-7 sm:w-8 sm:h-8" />
-      </Button>
-      
-      {/* Tooltip - Hidden on mobile, shown on desktop */}
-      <div className="hidden sm:block absolute bottom-full right-0 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
-        <div className="bg-gray-900 text-white text-sm px-3 py-2 rounded-lg whitespace-nowrap">
-          Chat with us on WhatsApp
-          <div className="absolute top-full right-4 -mt-1">
-            <div className="border-4 border-transparent border-t-gray-900" />
-          </div>
+        <MessageCircle className="w-7 h-7" />
+        {/* Decorative pulse */}
+        <span className="absolute inset-0 rounded-full animate-ping bg-green-400 opacity-60" aria-hidden="true" />
+      </a>
+      {/* Tooltip (desktop) */}
+      <div className="hidden sm:block absolute bottom-full right-0 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+        <div className="bg-gray-900 text-white text-xs px-2 py-1 rounded-md shadow">
+          Chat on WhatsApp
         </div>
       </div>
-
-      {/* Pulse animation */}
-      <div className="absolute inset-0 rounded-full bg-green-500 animate-ping opacity-75" />
     </div>
   );
 }

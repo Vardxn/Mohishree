@@ -315,26 +315,18 @@ export default function HomePage() {
                 Ready to get started in your area?
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-4">
-                <Button
-                  size="lg"
-                  variant="accent"
-                  className="text-base sm:text-lg md:text-xl px-8 sm:px-10 md:px-12 py-4 sm:py-5 md:py-6"
-                  asChild
+                <a
+                  href="tel:+919423679285"
+                  className="inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 bg-[#FFD700] text-gray-900 hover:bg-[#E6C200] focus:ring-[#FFD700] text-base sm:text-lg md:text-xl px-8 sm:px-10 md:px-12 py-4 sm:py-5 md:py-6"
                 >
-                  <a href="tel:+919423679285">
-                    📞 Call: +91 94236 79285
-                  </a>
-                </Button>
-                <Button
-                  size="lg"
-                  variant="secondary"
-                  className="bg-white text-primary hover:bg-gray-100 text-base sm:text-lg md:text-xl px-8 sm:px-10 md:px-12 py-4 sm:py-5 md:py-6"
-                  asChild
+                  📞 Call: +91 94236 79285
+                </a>
+                <Link 
+                  href="/contact"
+                  className="inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 bg-white text-[#0057B8] hover:bg-gray-100 focus:ring-[#2E8B57] text-base sm:text-lg md:text-xl px-8 sm:px-10 md:px-12 py-4 sm:py-5 md:py-6"
                 >
-                  <Link href="/contact">
-                    Get Free Quote
-                  </Link>
-                </Button>
+                  Get Free Quote
+                </Link>
               </div>
             </div>
           </div>

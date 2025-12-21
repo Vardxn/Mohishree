@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Facebook, Twitter, Linkedin, Instagram, Phone, Mail, MapPin } from 'lucide-react';
+import { Facebook, Twitter, Linkedin, Instagram, Phone, Mail, MapPin, CreditCard } from 'lucide-react';
+import { CONTACT } from '@/lib/contact';
 
 /**
  * Footer component with company information, links, and social media
@@ -43,36 +44,32 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-xs sm:text-sm mb-4">
-              Professional facility management and cleaning services in Chhatrapati Sambhajinagar.
+              {CONTACT.serviceAreaHeadline}
             </p>
             <div className="flex space-x-3 sm:space-x-4 justify-center sm:justify-start">
               <a
-                href="#"
+                href={CONTACT.links.facebook}
+                target="_blank" rel="noopener noreferrer"
                 className="bg-gray-800 p-2 rounded-full hover:bg-blue-600 transition-colors"
                 aria-label="Facebook"
               >
                 <Facebook className="w-4 h-4 sm:w-5 sm:h-5" />
               </a>
               <a
-                href="#"
-                className="bg-gray-800 p-2 rounded-full hover:bg-blue-600 transition-colors"
-                aria-label="Twitter"
-              >
-                <Twitter className="w-4 h-4 sm:w-5 sm:h-5" />
-              </a>
-              <a
-                href="#"
-                className="bg-gray-800 p-2 rounded-full hover:bg-blue-600 transition-colors"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="w-4 h-4 sm:w-5 sm:h-5" />
-              </a>
-              <a
-                href="#"
-                className="bg-gray-800 p-2 rounded-full hover:bg-blue-600 transition-colors"
+                href={CONTACT.links.instagram}
+                target="_blank" rel="noopener noreferrer"
+                className="bg-gray-800 p-2 rounded-full hover:bg-pink-600 transition-colors"
                 aria-label="Instagram"
               >
                 <Instagram className="w-4 h-4 sm:w-5 sm:h-5" />
+              </a>
+              <a
+                href={CONTACT.links.justdial}
+                target="_blank" rel="noopener noreferrer"
+                className="bg-gray-800 p-2 rounded-full hover:bg-orange-600 transition-colors"
+                aria-label="JustDial"
+              >
+                <Linkedin className="w-4 h-4 sm:w-5 sm:h-5" />
               </a>
             </div>
           </div>
@@ -118,26 +115,44 @@ export default function Footer() {
               <li className="flex items-start space-x-3 justify-center sm:justify-start">
                 <MapPin className="text-blue-400 w-4 h-4 sm:w-5 sm:h-5 mt-0.5 flex-shrink-0" />
                 <span className="text-xs sm:text-sm text-left">
-                  Harishchandra Residency, Bajajnagar, Chh. Sambhajinagar, 431133
+                  {CONTACT.address}
                 </span>
               </li>
               <li className="flex items-center space-x-3 justify-center sm:justify-start">
                 <Phone className="text-blue-400 w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
-                <a
-                  href="tel:9423679285"
-                  className="text-xs sm:text-sm hover:text-blue-400 transition-colors"
-                >
-                  +91 94236 79285
-                </a>
+                <div className="flex flex-col text-left">
+                  <a href={`tel:${CONTACT.phone.primaryRaw}`} className="text-xs sm:text-sm hover:text-blue-400 transition-colors">
+                    {CONTACT.phone.primaryDisplay}
+                  </a>
+                  <a href={`tel:${CONTACT.phone.secondaryRaw}`} className="text-xs sm:text-sm hover:text-blue-400 transition-colors">
+                    {CONTACT.phone.secondaryDisplay}
+                  </a>
+                  <a href={CONTACT.links.whatsappPrimary} target="_blank" rel="noopener noreferrer" className="text-[10px] sm:text-xs text-green-400 hover:text-green-300">
+                    WhatsApp: {CONTACT.phone.primaryDisplay}
+                  </a>
+                </div>
               </li>
               <li className="flex items-center space-x-3 justify-center sm:justify-start">
                 <Mail className="text-blue-400 w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
                 <a
-                  href="mailto:mohishreejcmk2025@gmail.com"
+                  href={`mailto:${CONTACT.email}`}
                   className="text-xs sm:text-sm hover:text-blue-400 transition-colors break-all"
                 >
-                  mohishreejcmk2025@gmail.com
+                  {CONTACT.email}
                 </a>
+              </li>
+              <li className="flex items-start space-x-3 justify-center sm:justify-start">
+                <CreditCard className="text-blue-400 w-4 h-4 sm:w-5 sm:h-5 mt-0.5 flex-shrink-0" />
+                <span className="text-[10px] sm:text-xs text-left leading-relaxed">
+                  <strong>Bank (IFSC):</strong> {CONTACT.bank.ifsc}<br />
+                  <strong>A/c No.:</strong> {CONTACT.bank.accountNumber}<br />
+                  <em className="opacity-70">{CONTACT.bank.note}</em>
+                </span>
+              </li>
+              <li className="flex items-start space-x-3 justify-center sm:justify-start">
+                <span className="text-[10px] sm:text-xs text-left">
+                  <strong>Areas:</strong> {CONTACT.serviceLocations.slice(0,8).join(', ')}<span className="hidden md:inline">, {CONTACT.serviceLocations.slice(8).join(', ')}</span>
+                </span>
               </li>
             </ul>
           </div>

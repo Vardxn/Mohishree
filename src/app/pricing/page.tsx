@@ -71,28 +71,20 @@ export default function PricingPage() {
                 Contact us now and we'll provide you with personalized pricing for your selected service
               </p>
               <div className="flex flex-wrap justify-center gap-4">
-                <Button 
-                  size="lg" 
-                  variant="secondary" 
-                  className="bg-white text-primary hover:bg-gray-100"
-                  asChild
+                <a 
+                  href="tel:+919423679285"
+                  className="inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 px-8 py-4 text-lg bg-white text-[#0057B8] hover:bg-gray-100 focus:ring-[#2E8B57]"
                 >
-                  <a href="tel:+919423679285">
-                    <Phone className="mr-2 h-5 w-5" />
-                    Call: +91 94236 79285
-                  </a>
-                </Button>
-                <Button 
-                  size="lg" 
-                  variant="outline" 
-                  className="border-2 border-white text-white hover:bg-white/10"
-                  asChild
+                  <Phone className="mr-2 h-5 w-5" />
+                  Call: +91 94236 79285
+                </a>
+                <Link 
+                  href="/contact"
+                  className="inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 px-8 py-4 text-lg border-2 border-white text-white hover:bg-white/10 focus:ring-white"
                 >
-                  <Link href="/contact">
-                    <Mail className="mr-2 h-5 w-5" />
-                    Contact Us
-                  </Link>
-                </Button>
+                  <Mail className="mr-2 h-5 w-5" />
+                  Contact Us
+                </Link>
               </div>
             </div>
           </div>

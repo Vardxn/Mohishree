@@ -267,3 +267,64 @@ npm run build
 ---
 
 **Ready to deploy? Follow Step 1 above!** 🚀
+
+---
+
+## 🔁 CLI Deployment Workflow (Preview → Production)
+
+You can deploy directly from the terminal without opening the Vercel dashboard.
+
+### 1. Set Vercel Token (one-time)
+Generate a token at https://vercel.com/account/tokens then set it in your session:
+
+```powershell
+$Env:VERCEL_TOKEN = "YOUR_TOKEN_HERE"
+```
+
+Add to your PowerShell profile for permanence (optional):
+```powershell
+Add-Content -Path $PROFILE -Value '$Env:VERCEL_TOKEN="YOUR_TOKEN_HERE"'
+```
+
+### 2. Preview Deployment (staging)
+Build + deploy without affecting production:
+```powershell
+cd MohishreeFacilityServices
+./deploy-vercel.ps1
+```
+This produces a unique preview URL (share for testing).
+
+### 3. Production Deployment Only
+```powershell
+./deploy-vercel.ps1 -Prod
+```
+
+### 4. Production Deploy + Git Commit + Push
+If you want the deploy to also commit and push changes (triggering any Git‑connected production redeploy rules), use:
+```powershell
+./deploy-vercel.ps1 -Prod -Push
+```
+
+### 5. WhatsApp Chat Button Environment Variables
+Add these (Production & Preview) for the floating green chat button:
+```
+NEXT_PUBLIC_WHATSAPP_NUMBER=919423679385
+NEXT_PUBLIC_WHATSAPP_MESSAGE=Hi! I would like to inquire about your facility management services.
+```
+Replace with full international number (no plus signs or spaces). Example: `919812345678`.
+
+### 5. NPM Script Alternative
+If token is set, you can also use package.json scripts:
+```powershell
+npm run deploy:preview
+npm run deploy:prod
+```
+
+### Notes
+- Requires `VERCEL_TOKEN` env var.
+- Uses `--prebuilt` so the local `npm run build` output is reused.
+- Add environment variables in Vercel dashboard for production.
+- Keep secrets out of commits; manage them in Vercel Project Settings.
+ - WhatsApp button uses public env vars (`NEXT_PUBLIC_*`) so do not store sensitive data there.
+
+---
