@@ -23,17 +23,21 @@ export const metadata: Metadata = {
   description: 'Leading provider of comprehensive facility management services including housekeeping, security, maintenance, and more. Trusted by businesses across India.',
   keywords: 'facility management, housekeeping services, security services, pest control, landscaping, pantry services, waste management',
   authors: [{ name: 'Mohishree Facility Services' }],
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 5,
-    userScalable: true,
-  },
   openGraph: {
     title: 'Mohishree Facility Services',
     description: 'Professional Facility Management Solutions',
     type: 'website',
     locale: 'en_IN',
+  },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'default',
+    title: 'Mohishree Services',
+  },
+  formatDetection: {
+    telephone: true,
+    email: true,
+    address: true,
   },
 };
 
@@ -44,6 +48,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${lato.variable} ${poppins.variable}`}>
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="theme-color" content="#0057B8" />
+      </head>
       <body className={lato.className}>
         {/* Translucent Logo Watermark Background */}
         <div 
