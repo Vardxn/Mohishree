@@ -14,7 +14,6 @@ export default function Footer() {
     { label: 'About Us', href: '/about' },
     { label: 'Services', href: '/services' },
     { label: 'Contact', href: '/contact' },
-    { label: 'Contact', href: '/contact' },
   ];
 
   const services = [
@@ -25,22 +24,22 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-gray-900 text-gray-300">
+    <footer className="bg-gradient-to-b from-[#0a1a2b] via-[#0a1827] to-[#0b1522] text-gray-200">
       <div className="container mx-auto px-4 py-12 sm:py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {/* Company Info with Logo */}
           <div className="text-center sm:text-left">
-            <div className="flex items-center space-x-2 sm:space-x-3 mb-4 justify-center sm:justify-start">
+            <div className="flex items-center space-x-3 sm:space-x-4 mb-4 justify-center sm:justify-start">
               <Image 
                 src="/images/mohishree-logo.jpg" 
-                alt="Mohishree Logo" 
-                width={40} 
-                height={40}
-                className="object-contain w-10 h-10 sm:w-12 sm:h-12"
+                alt="Mohishree Facility Services Logo" 
+                width={180} 
+                height={80}
+                className="object-contain w-36 sm:w-40 h-auto drop-shadow-lg"
               />
               <div>
                 <h3 className="text-white font-bold text-base sm:text-lg leading-tight">Mohishree</h3>
-                <p className="text-blue-300 text-xs sm:text-sm font-semibold leading-tight">Facility Services</p>
+                <p className="text-primary text-xs sm:text-sm font-semibold leading-tight">Facility Services</p>
               </div>
             </div>
             <p className="text-xs sm:text-sm mb-4">
@@ -50,7 +49,7 @@ export default function Footer() {
               <a
                 href={CONTACT.links.facebook}
                 target="_blank" rel="noopener noreferrer"
-                className="bg-gray-800 p-2 rounded-full hover:bg-primary transition-colors"
+                className="bg-white/5 p-2 rounded-full hover:bg-primary/80 hover:text-white transition-colors border border-white/10"
                 aria-label="Facebook"
               >
                 <Facebook className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -58,7 +57,7 @@ export default function Footer() {
               <a
                 href={CONTACT.links.instagram}
                 target="_blank" rel="noopener noreferrer"
-                className="bg-gray-800 p-2 rounded-full hover:bg-secondary transition-colors"
+                className="bg-white/5 p-2 rounded-full hover:bg-secondary/90 hover:text-white transition-colors border border-white/10"
                 aria-label="Instagram"
               >
                 <Instagram className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -66,7 +65,7 @@ export default function Footer() {
               <a
                 href={CONTACT.links.justdial}
                 target="_blank" rel="noopener noreferrer"
-                className="bg-gray-800 p-2 rounded-full hover:bg-primary transition-colors"
+                className="bg-white/5 p-2 rounded-full hover:bg-primary/80 hover:text-white transition-colors border border-white/10"
                 aria-label="JustDial"
               >
                 <Linkedin className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -158,9 +157,28 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* WhatsApp CTA */}
+        <div className="mt-10 sm:mt-12">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-white/5 border border-white/10 rounded-2xl px-4 py-5 sm:px-6 shadow-lg">
+            <div className="text-center sm:text-left">
+              <p className="text-sm sm:text-base text-white font-semibold">Need quick support?</p>
+              <p className="text-xs sm:text-sm text-gray-300">Chat with us on WhatsApp for instant assistance.</p>
+            </div>
+            <a
+              href={CONTACT.links.whatsappPrimary}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full bg-[#25D366] text-gray-900 font-semibold px-4 py-2 text-sm shadow-lg hover:opacity-90 transition"
+            >
+              <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/90 text-[#25D366] font-bold">WA</span>
+              <span>WhatsApp Us</span>
+            </a>
+          </div>
+        </div>
+
         {/* Bottom Bar */}
-        <div className="border-t border-gray-800 mt-8 sm:mt-12 pt-6 sm:pt-8 text-center">
-          <p className="text-xs sm:text-sm">
+        <div className="border-t border-white/10 mt-8 sm:mt-12 pt-6 sm:pt-8 text-center">
+          <p className="text-xs sm:text-sm text-gray-300">
             &copy; {currentYear} Mohishree Facility Services. All rights reserved.
           </p>
         </div>

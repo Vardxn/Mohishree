@@ -28,23 +28,15 @@ export default function Header() {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between py-2 sm:py-3">
           {/* Logo with Image - Responsive */}
-          <Link href="/" className="flex items-center space-x-2 md:space-x-3 hover:opacity-90 transition-opacity flex-shrink-0">
+          <Link href="/" className="flex items-center hover:opacity-90 transition-opacity flex-shrink-0">
             <Image 
               src="/images/mohishree-logo.jpg" 
               alt="Mohishree Facility Services Logo" 
-              width={50} 
-              height={50}
-              className="object-contain w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14"
+              width={180} 
+              height={80}
+              className="object-contain w-36 sm:w-40 md:w-48 h-auto"
               priority
             />
-            <div className="flex flex-col min-w-0">
-              <span className="text-sm sm:text-lg md:text-xl font-bold text-orange-500 leading-tight truncate">
-                Mohishree
-              </span>
-              <span className="text-xs sm:text-sm font-semibold text-blue-600 leading-tight truncate">
-                FACILITY SERVICES
-              </span>
-            </div>
           </Link>
 
           {/* Desktop Navigation */}
