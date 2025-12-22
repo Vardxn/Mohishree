@@ -4,8 +4,9 @@ import { MessageCircle } from 'lucide-react';
 
 export default function WhatsAppButton() {
   // Expose number & default message via env vars (set in Vercel dashboard)
-  const phoneNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '91XXXXXXXXXX';
-  const defaultMessage = process.env.NEXT_PUBLIC_WHATSAPP_MESSAGE || 'Hi! I would like to inquire about your services.';
+  // Fallback to the site contact number so the chat always opens even if env vars are missing
+  const phoneNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '919423679285';
+  const defaultMessage = process.env.NEXT_PUBLIC_WHATSAPP_MESSAGE || 'Hi';
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(defaultMessage)}`;
 
   return (
