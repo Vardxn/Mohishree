@@ -393,9 +393,9 @@ export default function OfficeCleaningPage() {
               <Button size="lg" variant="secondary" className="bg-white text-slate-700 hover:bg-slate-50">
                 Request Free Site Assessment
               </Button>
-              <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white/10">
-                WhatsApp: +91-XXXXXXXXXX
-              </Button>
+              <a href="https://api.whatsapp.com/send?phone=919423679285&text=Hi" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center rounded-md border-2 border-white text-white hover:bg-white/10 px-6 py-3">
+                WhatsApp: +91 94236 79285
+              </a>
             </div>
             <p className="mt-6 text-slate-200">
               ⭐ 4.4 Rating | 🕐 Flexible Scheduling | 🌿 Eco-Friendly Products
