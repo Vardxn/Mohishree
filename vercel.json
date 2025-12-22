@@ -5,6 +5,5 @@
   "outputDirectory": ".next",
   "github": { "silent": true },
   "routes": [],
-  "env": {},
-  "ignoreCommand": "exit 0"
+  "env": {}
 }
