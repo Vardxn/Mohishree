@@ -3,7 +3,10 @@
   "framework": "nextjs",
   "buildCommand": "npm run build",
   "outputDirectory": ".next",
-  "github": { "silent": true },
+  "github": {
+    "silent": false,
+    "autoJobCancelation": true
+  },
   "routes": [],
   "env": {}
 }
