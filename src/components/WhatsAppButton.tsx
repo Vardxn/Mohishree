@@ -7,7 +7,8 @@ export default function WhatsAppButton() {
   // Fallback to the site contact number so the chat always opens even if env vars are missing
   const phoneNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '919423679285';
   const defaultMessage = process.env.NEXT_PUBLIC_WHATSAPP_MESSAGE || 'Hi';
-  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(defaultMessage)}`;
+  // Use api.whatsapp.com which works reliably across desktop/mobile
+  const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(defaultMessage)}`;
 
   return (
     <div className="fixed bottom-4 right-4 z-50 group">
