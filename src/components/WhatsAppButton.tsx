@@ -18,12 +18,12 @@ export default function WhatsAppButton() {
     >
       <div className="relative">
         {/* Main Button - Larger on mobile for better touch target */}
-        <div className="flex items-center justify-center w-16 h-16 sm:w-14 sm:h-14 bg-green-500 hover:bg-green-600 active:bg-green-700 rounded-full shadow-xl transition-all duration-300 hover:scale-110 active:scale-95">
+        <div className="flex items-center justify-center w-16 h-16 sm:w-14 sm:h-14 bg-[#25D366] hover:bg-[#20BA5A] active:bg-[#1DA851] rounded-full shadow-xl transition-all duration-300 hover:scale-110 active:scale-95">
           <MessageCircle className="w-8 h-8 sm:w-7 sm:h-7 text-white" strokeWidth={2.5} />
         </div>
         
         {/* Pulse Animation */}
-        <span className="absolute inset-0 rounded-full bg-green-400 opacity-75 animate-ping" aria-hidden="true" />
+        <span className="absolute inset-0 rounded-full bg-[#25D366] opacity-75 animate-ping" aria-hidden="true" />
       </div>
       
       {/* Tooltip - Hidden on mobile, shown on desktop */}

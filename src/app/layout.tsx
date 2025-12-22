@@ -53,7 +53,7 @@ export default function RootLayout({
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="theme-color" content="#0057B8" />
+        <meta name="theme-color" content="#0066CC" />
       </head>
       <body className={lato.className}>
         {/* Translucent Logo Watermark Background */}
