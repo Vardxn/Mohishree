@@ -9,7 +9,10 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
-  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '919423679285';
+  const configuredNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER;
+  const whatsappNumber = configuredNumber && /^\d{10,15}$/.test(configuredNumber)
+    ? configuredNumber
+    : '919423679285';
   const whatsappMessage = encodeURIComponent('Hi! I would like to inquire about your facility management services.');
   const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${whatsappMessage}`;
   const emailLink = `mailto:${businessConfig.email.primary}?subject=Facility%20Services%20Inquiry`;

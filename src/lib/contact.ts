@@ -15,7 +15,7 @@ export const CONTACT = {
     instagram: 'https://www.instagram.com/house_keepingcleaningservices',
     facebook: 'https://www.facebook.com/mohishreefacilities',
     justdial: 'https://www.justdial.com/Aurangabad/Mohishree-Facility-Services-Aurangabad-Cantonment/9999PX240-190331084128-X7R9_BZDET',
-    whatsappPrimary: 'https://wa.me/919423679285',
+    whatsappPrimary: 'https://api.whatsapp.com/send?phone=919423679285&text=Hi',
   },
   address: 'Shop No. 2 Gut No. 40, Mohishree Facility Services, Swastik Nagar, Sahajpur Road, Aurangabad Cantonment-431002',
   serviceAreaHeadline: 'Available across Aurangabad and surrounding areas.',
