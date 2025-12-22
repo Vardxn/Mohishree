@@ -4,7 +4,6 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import WhatsAppButton from '@/components/WhatsAppButton';
 
 const lato = Lato({ 
   weight: ['400', '700'],
@@ -65,7 +64,6 @@ export default function RootLayout({
             {children}
           </main>
           <Footer />
-          <WhatsAppButton />
           {/* Vercel Speed Insights */}
           <SpeedInsights />
         </div>
