@@ -94,7 +94,7 @@ export default function BeforeAfterGallery() {
   return (
     <div className="w-full max-w-4xl mx-auto">
       <div className="text-center mb-8">
-        <h2 className="text-3xl font-bold text-text-primary mb-2">
+        <h2 className="text-3xl font-bold text-white mb-2">
           Our Results Speak for Themselves
         </h2>
         <p className="text-text-secondary">
@@ -159,10 +159,10 @@ export default function BeforeAfterGallery() {
           <div className="p-6 bg-gradient-to-r from-primary/5 to-primary/10">
             <div className="flex items-center justify-between">
               <div>
-                <h3 className="text-xl font-bold text-text-primary mb-1">
+                <h3 className="text-xl font-bold text-white mb-1">
                   {current.service}
                 </h3>
-                <p className="text-text-secondary">
+                <p className="text-gray-400">
                   {current.description}
                 </p>
               </div>
@@ -211,7 +211,7 @@ export default function BeforeAfterGallery() {
             </div>
 
             {/* Counter */}
-            <div className="text-center mt-4 text-sm text-text-secondary">
+            <div className="text-center mt-4 text-sm text-gray-400">
               {currentIndex + 1} / {beforeAfterData.length}
             </div>
           </div>

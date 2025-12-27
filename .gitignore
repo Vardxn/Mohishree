@@ -29,6 +29,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# local assets/templates not tracked
+3D-Portfolio-Websites-Free-05/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
