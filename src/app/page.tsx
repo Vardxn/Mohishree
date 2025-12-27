@@ -1,10 +1,31 @@
 import Link from 'next/link';
-import { Home, Building2, Droplets, Sofa, Bath, Wind, Sparkles, Factory, GraduationCap, ShoppingBag, Briefcase, DoorClosed, Star, Quote, CheckCircle2, Leaf, Users, Wrench } from 'lucide-react';
+import { Home, Building2, Droplets, Sofa, Bath, Wind, Sparkles, Factory, GraduationCap, ShoppingBag, Briefcase, DoorClosed, Star, Quote, CheckCircle2, Leaf, Users, Wrench, ArrowUp } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import businessConfig from '@/lib/config';
 
 export default function HomePage() {
+  const featuredServices = [
+    {
+      slug: 'facade-cleaning',
+      title: 'Professional Facade Cleaning',
+      description: 'Expert high-rise building facade washing and restoration using industrial equipment',
+      icon: <Building2 className="w-12 h-12" />,
+      image: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=600&h=400&fit=crop',
+      badge: '⭐ Most Requested',
+      highlight: true,
+    },
+    {
+      slug: 'boom-lifting',
+      title: 'Boom Lifting & High-Access Services',
+      description: 'Safe and professional boom lift operations for cleaning, maintenance, and accessibility',
+      icon: <ArrowUp className="w-12 h-12" />,
+      image: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=600&h=400&fit=crop',
+      badge: '⭐ Most Requested',
+      highlight: true,
+    },
+  ];
+
   const services = [
     {
       slug: 'residential',
@@ -101,6 +122,62 @@ export default function HomePage() {
                 <div className="text-xs sm:text-sm font-semibold mt-2 text-gray-700">Trusted by 100+ Clients</div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured High-Demand Services Section */}
+      <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-primary/5 via-accent/5 to-primary/5 border-y border-primary/20">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-10 sm:mb-14 md:mb-16">
+            <div className="inline-block bg-accent text-white px-4 sm:px-6 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-bold mb-4 sm:mb-6 shadow-lg">
+              ⭐ MOST REQUESTED SERVICES
+            </div>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-3 sm:mb-4 font-heading">
+              Our Specialized High-Demand Services
+            </h2>
+            <p className="text-base sm:text-lg md:text-xl text-text-secondary max-w-2xl mx-auto px-2 sm:px-4">
+              Expert solutions for challenging access cleaning and maintenance projects
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
+            {featuredServices.map((service) => (
+              <Link key={service.slug} href={`/services/${service.slug}`}>
+                <Card className="h-full hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer group overflow-hidden border-2 border-accent/40 bg-white">
+                  <div className="relative h-44 sm:h-48 md:h-56 overflow-hidden">
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+                    <div className="absolute top-4 sm:top-5 right-4 sm:right-5 bg-accent text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-bold shadow-lg">
+                      {service.badge}
+                    </div>
+                    <div className="absolute bottom-5 sm:bottom-6 left-5 sm:left-6 text-accent">
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-white/20 backdrop-blur-md rounded-xl flex items-center justify-center group-hover:bg-white/30 transition-all shadow-lg">
+                        {service.icon}
+                      </div>
+                    </div>
+                  </div>
+                  <CardHeader className="pb-3">
+                    <CardTitle className="text-lg sm:text-xl md:text-2xl text-text-primary group-hover:text-accent transition-colors font-heading">
+                      {service.title}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <CardDescription className="text-sm sm:text-base text-text-secondary mb-4">
+                      {service.description}
+                    </CardDescription>
+                    <div className="inline-flex items-center gap-2 text-accent font-semibold text-sm sm:text-base group-hover:gap-3 transition-all">
+                      Explore Service
+                      <span className="text-lg">→</span>
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
